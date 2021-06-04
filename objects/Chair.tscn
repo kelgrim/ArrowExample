@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://textures/textures/BFT - Legend Of Pocket Monsters Tileset.png" type="Texture" id=1]
+[ext_resource path="res://objects/Hurtbox.gd" type="Script" id=2]
+[ext_resource path="res://objects/Chair.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.88927, 3.24062 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.39321, 4.23274 )
+
+[node name="Chair" type="StaticBody2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 288, 656, 16, 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.78583, 1.48819 )
+shape = SubResource( 1 )
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( 1.28976, 2.67874 )
+shape = SubResource( 2 )
